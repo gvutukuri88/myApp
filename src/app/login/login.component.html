@@ -1,1 +1,80 @@
-<p>login works!</p>
+
+
+
+<div class="c" style="display:grid ; width:10%;">
+    <div style="color: red" >
+        {{registration}}
+    </div>
+    <p>Already have an account <a class="button" routerLink="/signin">Sign In</a></p>
+    <div class="title">
+        Sign Up
+    </div>
+    <form [formGroup]="sigupForm" (ngSubmit)="signupHit()">
+        <div style="margin: auto;">
+
+            <div class="inputcont">
+                <label for="fullname">Full name</label>
+                <input type="text" id="fullname" formControlName="fullName">
+                <span style="color: red"
+                    *ngIf="sigupForm.get('fullName').errors && (sigupForm.get('fullName').touched || sigupForm.get('fullName').dirty) ">
+                    <span *ngIf="getErrorFullName()">
+                        {{getErrorFullName()}}
+                    </span>
+                </span>
+            </div>
+
+            <div class="inputcont">
+                <label for="email">Email</label>
+                <input type="email" id="email" formControlName="emailId">
+                <span style="color: red"
+                    *ngIf="sigupForm.get('emailId').errors && (sigupForm.get('emailId').touched || sigupForm.get('emailId').dirty)">
+                    <span *ngIf="getErrorEmail()">
+                        {{getErrorEmail()}}
+                    </span>
+                </span>
+            </div>
+
+            <div class="inputcont">
+                <label for="password">Password</label>
+                <input type="password" id="password" formControlName="password">
+                <span style="color: red"
+                    *ngIf="sigupForm.get('password').errors && (sigupForm.get('password').touched || sigupForm.get('password').dirty)">
+                    <span *ngIf="getErrorPassword()">
+                        {{getErrorPassword()}}
+                    </span>
+                </span>
+            </div>
+
+            <div class="inputcont">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" formControlName="phone">
+                <span style="color: red"
+                    *ngIf="sigupForm.get('phone').errors && (sigupForm.get('phone').touched || sigupForm.get('phone').dirty)">
+                    <span *ngIf="getErrorPhone()">
+                        {{getErrorPhone()}}
+                    </span>
+                </span>
+            </div>
+
+            <div class="inputcont">
+                <label for="company">Company</label>
+                <input type="text" id="company" formControlName="company">
+                <span style="color: red"
+                    *ngIf="sigupForm.get('company').errors && (sigupForm.get('company').touched || sigupForm.get('company').dirty)">
+                    <span *ngIf="getErrorcompany()">
+                        {{getErrorcompany()}}
+                    </span>
+                </span>
+            </div>
+         
+            <div class="inputcont" style="display:inline !important">
+                <input formControlName="checkbox" type="checkbox" />I agree with terms and conditions
+            </div>
+            <button class="submitBtn" type="submit" [disabled]="sigupForm.invalid || !sigupForm.get('checkbox').value">Create Your Free
+                Account</button>
+
+        </div>
+    </form>
+
+
+</div>

@@ -1,0 +1,46 @@
+
+
+<div class="c" style="display:grid ; width:10%;">
+    <div class="title">
+        Sign In
+    </div>
+    <div style="color: red">
+        {{registration}}
+    </div>
+    <form [formGroup]="signInForm" (ngSubmit)="signinHit()">
+        <div style="margin: auto;">
+
+           <div class="inputcont">
+            <label for="email">Email <span style="color: red" >*</span></label>
+            <input type="email" id="email" formControlName="emailId">
+            <span style="color: red"
+                *ngIf="signInForm.get('emailId').errors && (signInForm.get('emailId').touched || signInForm.get('emailId').dirty)">
+                <span *ngIf="getErrorEmail()">
+                    {{getErrorEmail()}}
+                </span>
+            </span>
+           </div>
+            
+            <div class="inputcont">
+                <label for="password">Password <span style="color: red" >*</span></label>
+                <input type="password" id="password" formControlName="password">
+                <span style="color: red"
+                    *ngIf="signInForm.get('password').errors && (signInForm.get('password').touched || signInForm.get('password').dirty)">
+                    <span *ngIf="getErrorPassword()">
+                        {{getErrorPassword()}}
+                    </span>
+                </span>
+            </div>
+            
+
+            <div class="inputcont" style="display:inline !important">
+                <input formControlName="checkbox" type="checkbox" />Remember Me
+            </div>
+                <button class="submitBtn" type="submit" [disabled]="signInForm.invalid">Create Your Free Account</button>
+          
+            
+        </div>
+    </form>
+    
+
+</div>

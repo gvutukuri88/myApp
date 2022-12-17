@@ -1,0 +1,10 @@
+.c{
+    position: absolute;
+    /* top:100px; */
+    display: grid;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 2px solid grey;
+    padding: 100px
+}
